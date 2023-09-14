@@ -22,13 +22,17 @@ For each benchmark you can build the dockerfile and run it with the following co
 
 To build
 
-```docker build -f <benchmark>.dockerfile -t <benchmark>-netrix .```
+``` bash
+docker build -f <benchmark>.dockerfile -t <benchmark>-netrix .
+```
 
 To run
 
-```docker run <benchmark>-netrix:latest [ARGS]```
+``` bash
+docker run <benchmark>-netrix:latest [ARGS]
+```
 
-The arguments passed are based on the bechmark that you are trying to reproduce.
+The arguments passed are based on the benchmark that you are trying to reproduce.
 
 ### To run unit tests
 
