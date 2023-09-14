@@ -1,0 +1,4 @@
+bftsmart0: ./runscripts/smartrun.sh bftsmart.demo.map.MapServer 0 > ./build/logs/server0.log 2>&1
+bftsmart1: ./runscripts/smartrun.sh bftsmart.demo.map.MapServer 1 > ./build/logs/server1.log 2>&1
+bftsmart2: ./runscripts/smartrun.sh bftsmart.demo.map.MapServer 2 > ./build/logs/server2.log 2>&1
+bftsmart3: ./runscripts/smartrun.sh bftsmart.demo.map.MapServer 3 > ./build/logs/server3.log 2>&1
