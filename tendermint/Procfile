@@ -1,0 +1,4 @@
+tendermint0: TMHOME="${PWD}/build/node0" ./build/tendermint node --proxy-app kvstore > ./build/node0/tendermint.log 2>&1
+tendermint1: TMHOME="${PWD}/build/node1" ./build/tendermint node --proxy-app kvstore > ./build/node1/tendermint.log 2>&1
+tendermint2: TMHOME="${PWD}/build/node2" ./build/tendermint node --proxy-app kvstore > ./build/node2/tendermint.log 2>&1
+tendermint3: TMHOME="${PWD}/build/node3" ./build/tendermint node --proxy-app kvstore > ./build/node3/tendermint.log 2>&1
