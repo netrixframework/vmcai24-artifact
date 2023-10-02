@@ -18,6 +18,9 @@ COPY scripts/bftsmart_compile.sh .
 
 RUN bash bftsmart_compile.sh
 
+WORKDIR /go/src/github.com/netrixframework/netrix
+COPY netrix .
+
 WORKDIR /go/src/github.com/netrixframework/bftsmart-testing
 
 COPY bftsmart-testing .

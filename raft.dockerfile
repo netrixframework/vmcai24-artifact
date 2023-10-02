@@ -3,6 +3,9 @@ FROM golang:1.20
 # Dependencies
 RUN go install github.com/mattn/goreman@latest
 
+WORKDIR /go/src/github.com/netrixframework/netrix
+COPY netrix .
+
 WORKDIR /go/src/github.com/netrixframework/raft-testing
 
 COPY raft-testing .

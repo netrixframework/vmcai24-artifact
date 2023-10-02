@@ -23,17 +23,64 @@ For each benchmark you can build the dockerfile and run it with the following co
 To build
 
 ``` bash
-docker build -f <benchmark>.dockerfile -t <benchmark>-netrix .
+./build.sh <tendermint/raft/bftsmart>
 ```
 
-To run
+To run for a default of 100 iterations
 
 ``` bash
-docker run <benchmark>-netrix:latest [ARGS]
+./run.sh <tendermint/raft/bftsmart> <test_case> 
 ```
 
-The arguments passed are based on the benchmark that you are trying to reproduce.
+Optionally, you can pass the number of iterations as the third argument to the run script
+
+``` bash
+./run.sh <tendermint/raft/bftsmart> <test_case> <iterations>
+```
 
 ### To run unit tests
 
-To run the primary benchmarks of Table 3 from the paper for a specific unit test `UT`, please use the arguments `pct-test [UT]`
+The run script allows reproducing the expected results for the tests based on the benchmarks listed in table 3 of the paper. We document below the list of unit tests for each benchmark that can be passed as arguments
+
+For **raft**,
+
+- Liveness
+- LivenessNoCQ
+- NoLiveness
+- ConfChangeBug
+- DropHeartbeat
+- DropVotes
+- DropFVotes
+- DropAppend
+- ReVote
+- ManyReVote
+- MultiReVote
+
+For **tendermint**,
+
+- ExpectUnlock
+- Relocked
+- LockedCommit
+- LaggingReplica
+- ForeverLaggingReplica
+- RoundSkip
+- BlockVotes
+- PrecommitInvariant
+- CommitAfterRoundSkip
+- DifferentDecisions
+- NilPrevotes
+- ProposalNilPrevote
+- NotNilDecide
+- GarbledMessage
+- HigherRound
+
+For **bftsmart**,
+
+- DPropForP
+- DPropSame
+- DropWrite
+- DropWriteForP
+- ExpectNewEpoch
+- ExpectStop
+- ByzLeaderChange
+- PrevEpochProposal

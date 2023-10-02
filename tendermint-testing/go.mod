@@ -2,6 +2,10 @@ module github.com/netrixframework/tendermint-testing
 
 go 1.18
 
+replace (
+	github.com/netrixframework/netrix v0.2.9 => /go/src/github.com/netrixframework/netrix
+)
+
 require (
 	github.com/gogo/protobuf v1.3.2
 	github.com/netrixframework/netrix v0.2.9

@@ -9,6 +9,9 @@ COPY tendermint .
 RUN make build-linux
 RUN make localnet
 
+WORKDIR /go/src/github.com/netrixframework/netrix
+COPY netrix .
+
 WORKDIR /go/src/github.com/netrixframework/tendermint-testing
 
 COPY tendermint-testing .

@@ -2,6 +2,11 @@ module github.com/netrixframework/raft-testing
 
 go 1.17
 
+replace (
+	github.com/netrixframework/netrix v0.3.5 => /go/src/github.com/netrixframework/netrix
+)
+
+
 require go.etcd.io/etcd/raft/v3 v3.5.1
 
 require (
