@@ -23,7 +23,7 @@ if ! is_valid_benchmark $BENCHMARK; then
     exit 1
 fi
 
-DOCKER_IMAGE="localhost/+$BENCHMARK-netrix"
+DOCKER_IMAGE="localhost/$BENCHMARK-netrix"
 TESTCASE=$2
 ITERATIONS=100
 
@@ -104,9 +104,9 @@ is_raft_test() {
 
 is_valid_test() {
     case "$1" in
-        ("tendermint") return is_tendermint_test $1 $2 ;;
-        ("raft") return is_raft_test $1 $2 ;;
-        ("bftsmart") return is_bftsmart_test $1 $2 ;;
+        ("tendermint") if is_tendermint_test $1 $2; then return 0; else return 1; fi ;;
+        ("raft") if is_raft_test $1 $2; then return 0; else return 1; fi ;;
+        ("bftsmart") if is_bftsmart_test $1 $2; then return 0; else return 1; fi ;;
         (*) return 1 ;;
     esac
 }
@@ -124,5 +124,6 @@ if command -v podman &> /dev/null; then
     DOCKER_COMMAND=podman
 fi
 
-$DOCKER_COMMAND run $DOCKER_IMAGE:latest pct-test $TESTCASE -i $ITERATIONS
+$DOCKER_COMMAND run -it "$DOCKER_IMAGE:latest" pct-test $TESTCASE -i $ITERATIONS
+
 

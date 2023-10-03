@@ -1,7 +1,6 @@
 plugins {
     id 'java'
     id 'distribution'
-    id 'org.hidetake.ssh' version '2.10.1'
 }
 
 group 'BFT-SMaRt'
@@ -20,32 +19,6 @@ repositories {
 jar {
     archivesBaseName='BFT-SMaRt'
     project.version=""
-}
-
-ssh.settings {
-    fileTransfer = 'scp'
-}
-
-remotes {
-    master {
-        host = '<ip>'
-        user = '<username>'
-        //password = '<password>'
-        identity=file('<private key file>')
-    }
-}
-
-task remoteDeploy(dependsOn: installDist) {
-    doLast {
-        def fileSeparator = System.getProperty("file.separator")
-        def src = project.buildDir.name + fileSeparator + "install" + fileSeparator + project.name
-        def target = '~/'
-        ssh.run {
-            session(remotes.master) {
-                put from: src, into: target
-            }
-        }
-    }
 }
 
 task localDeploy(dependsOn: installDist) {

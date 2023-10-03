@@ -46,5 +46,5 @@ ITERATIONS=100
 for i in "${TESTS[@]}"
 do
     echo "Running test: $i"
-    $DOCKER_COMMAND run $DOCKER_IMAGE:latest pct-test $i -i $ITERATIONS
+    $DOCKER_COMMAND run -it $DOCKER_IMAGE:latest pct-test $i -i $ITERATIONS
 done
