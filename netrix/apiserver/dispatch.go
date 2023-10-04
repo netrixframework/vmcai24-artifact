@@ -64,9 +64,9 @@ func (a *APIServer) SendMessage(msg *types.Message) error {
 	}
 
 	a.Logger.With(log.LogParams{
-		// "message": msg.ParsedMessage.String(),
-		"to": msg.To,
-		"id": msg.ID,
+		"message": msg.ParsedMessage.String(),
+		"to":      msg.To,
+		"id":      msg.ID,
 	}).Debug("Sending message")
 
 	replica, ok := a.ctx.Replicas.Get(msg.To)

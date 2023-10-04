@@ -57,8 +57,8 @@ func PCTTestStrategy() *cobra.Command {
 				&util.TMessageParser{},
 				strategy,
 				&strategies.StrategyConfig{
-					Iterations:       60,
-					IterationTimeout: 80 * time.Second,
+					Iterations:       iterations,
+					IterationTimeout: 90 * time.Second,
 				},
 			)
 

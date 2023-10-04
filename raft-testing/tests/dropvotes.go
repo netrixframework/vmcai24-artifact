@@ -31,7 +31,7 @@ func DropVotesProperty() *sm.StateMachine {
 	start := property.Builder()
 
 	start.On(
-		sm.IsMessageReceive().And(util.IsMessageType(raftpb.MsgVoteResp).And(sm.IsMessageFrom(types.ReplicaID("4")))),
+		sm.IsMessageReceive().And(util.IsMessageType(raftpb.MsgVote).And(sm.IsMessageFrom(types.ReplicaID("4")))),
 		"VoteDelivered",
 	)
 

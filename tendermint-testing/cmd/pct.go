@@ -55,7 +55,7 @@ func PCTStrategy() *cobra.Command {
 				&util.TMessageParser{},
 				strategy,
 				&strategies.StrategyConfig{
-					Iterations:       1000,
+					Iterations:       iterations,
 					IterationTimeout: 40 * time.Second,
 				},
 			)

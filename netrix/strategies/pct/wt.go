@@ -33,6 +33,10 @@ func (p *PCTStrategyWithTestCase) Step(e *types.Event, ctx *strategies.Context) 
 	if p.testCaseCtx == nil {
 		p.testCaseCtx = testlib.NewContextFrom(ctx.Context, p.testCase)
 	}
+
+	ctx.Logger.With(log.LogParams{
+		"event": e.TypeS,
+	}).Debug("Stepping test case")
 	messages, handled := p.testCase.Step(e, p.testCaseCtx)
 	p.lock.Unlock()
 

@@ -59,8 +59,8 @@ func PCTTestStrategy() *cobra.Command {
 				&util.BFTSmartParser{},
 				strategy,
 				&strategies.StrategyConfig{
-					Iterations:       30,
-					IterationTimeout: 15 * time.Second,
+					Iterations:       iterations,
+					IterationTimeout: 60 * time.Second,
 					SetupFunc: func(ctx *strategies.Context) {
 						go bftSmartClient.Set("name", "jd")
 					},

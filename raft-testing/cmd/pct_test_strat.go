@@ -53,7 +53,7 @@ func PCTTestStrategyCommand() *cobra.Command {
 				strategy,
 				&strategies.StrategyConfig{
 					Iterations:       iterations,
-					IterationTimeout: 15 * time.Second,
+					IterationTimeout: 60 * time.Second,
 					SetupFunc:        r.setupFunc,
 					StepFunc:         r.stepFunc,
 					FinalizeFunc:     r.finalize,
