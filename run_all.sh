@@ -23,7 +23,7 @@ if ! is_valid_benchmark $BENCHMARK; then
     exit 1
 fi
 
-DOCKER_IMAGE="localhost/$BENCHMARK-netrix"
+DOCKER_IMAGE="$BENCHMARK-netrix"
 DOCKER_COMMAND=docker
 
 if command -v podman &> /dev/null; then
