@@ -12,6 +12,10 @@ The folders associated with each of the benchmarks are:
 - Tendermint - instrumented code in `tendermint` and tests in `tendermint-testing`
 - Raft - instrumented code `raft-testing/raft` and the tests in `raft-testing/tests`
 
+In addition to the code and scripts to reproduce the tests, we include the run logs of the test cases for in `run_logs` and segregate it based on the benchmark.
+
+The `scripts` folder contains the scripts used to run the tests.
+
 Additionally,
 
 - `scripts` contain build and run scripts used within the dockerfile for each of the benchmarks.
@@ -108,6 +112,7 @@ The timeout can be changed in `<benchmark>-testing/cmd/pct_test_strat.go` for th
 The build script builds the docker image. However, the performance of the tests is sensitive to the resources available to the docker container. In each test iteration, we run the implementation and communicate events/messages to the central server. The number of communication messages exchanged is large and in the order of 10k. Therefore running the docker image with minimal bandwidth or memory resources increases the message exchange time. The test timeout should be increased as a consequence.
 
 We expect some hiccups with the BFT-Smart benchmark as it is sensitive to the memory requirements. The test might crash without complete all the iterations due to inadequate memory.
+
 
 ## Extending tests
 
